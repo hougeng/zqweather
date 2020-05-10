@@ -3,13 +3,14 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
     >
-    <!--actionBar(导航栏） 高度-->
+
+    <!--actionBar(导航栏） 高度
+     android:layout_height="?android:attr/actionBarDivider"-->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarDivider"
-        android:background="?attr/colorPrimary">
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="?android:attr/colorPrimary">
 <!--centerInParent 水平垂直都居中-->
         <TextView
             android:layout_width="wrap_content"
@@ -30,10 +31,10 @@
             android:background="@drawable/ic_back"/>
 
     </RelativeLayout>
-
+<!--不使用RecyclerView因为ListView自带分割线-->
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/list_item" />
+        android:id="@+id/list_view" />
 
 </LinearLayout>
