@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ZqWeather</string>
+    <string name="forecast_future">未来几天天气</string>
+    <string name="aqi_text">空气质量</string>
 </resources>

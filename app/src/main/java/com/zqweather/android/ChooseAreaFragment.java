@@ -3,6 +3,7 @@ package com.zqweather.android;
 碎片
  */
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -72,7 +73,7 @@ public class ChooseAreaFragment extends Fragment {
         backButton = (Button) view.findViewById(R.id.back_button);
         listView = (ListView) view.findViewById(R.id.list_view);
         adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, dataList); //适配器初始化
-        //参数一：使用到的上下文对象   参数二：使用到的布局文件。给item进行使用的,此处为单行显示文字    参数三：数据源对象
+         //参数一：使用到的上下文对象   参数二：使用到的布局文件。给item进行使用的,此处为单行显示文字   参数三：数据源对象
         listView.setAdapter(adapter);//将适配器设置到listView上
 //        return inflater.inflate(R.layout.choose_area, container,false);
         return view;
@@ -99,6 +100,12 @@ public class ChooseAreaFragment extends Fragment {
                 } else if (currentLevel == LEVEL_CITY) {
                     selectedCity = cityList.get(position);
                     queryCounties();
+                } else if (currentLevel == LEVEL_COUNTY) {
+                    String weatherId = countyList.get(position).getWeatherId();
+                    Intent intent = new Intent(getActivity(),WeatherActivity.class);
+                    intent.putExtra("weather_id",weatherId);//用intent把县的天气id传递过去
+                    startActivity(intent);
+                    getActivity().finish();
                 }
             }
         });
